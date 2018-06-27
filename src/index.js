@@ -28,6 +28,6 @@ setInterval(tick, 1000);
 
 
 ReactDOM.render(
-  <Welcome/>,
+  <Welcome name="Sage"/>,
   document.getElementById('root')
 )
