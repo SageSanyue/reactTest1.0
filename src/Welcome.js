@@ -3,23 +3,33 @@ class Welcome extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            date: new Date()
+            date: new Date(),
+            test: '1'
         }
         setInterval(()=>{ 
-            //this.state = {
                 this.setState({
-                   date: new Date() // 更新 date
+                   date: new Date(), // 更新 date
+                   test: 'setInterval'
                 })
+            },5000)
             
-        })
+        
         console.log('我已经在 constructor 里将 props 和 state 初始化好了')
     }
 
     componentWillMount(){
-           console.log('运行到这里的话，说明马上就要运行 render 了')
+        this.setState({
+             date: new Date(), // 更新 date
+             test: 'componentWillMount'
+         })
+        console.log('运行到这里的话，说明马上就要运行 render 了')
     }
 
     render() {
+      //this.setState({
+         //  date: new Date(), // 更新 date
+          // test: 'render'
+      //})
       console.log('嗯，这里是 render')
       //return <h1>Hello, Component</h1>;
       //return <h1>Hello,{this.props.name}</h1>;
@@ -31,8 +41,38 @@ class Welcome extends React.Component {
       ) 
     }
     componentDidMount(){
+        this.setState({
+            date: new Date(), // 更新 date
+            test: 'componentDidMount'
+         })
         console.log('已经挂载到页面里了')
     }
+    componentWillReceiveProps(){
+        this.setState({
+        date: new Date(), // 更新 date
+        test: 'componentWillReceiveProps'
+        })
+       }
+    shouldComponentUpdate(){
+       this.setState({
+       date: new Date(), // 更新 date
+        test: 'shouldComponentUpdate'
+       })
+       return true
+    }
+    componentWillUpdate(){
+      
+      }
+    componentDidUpdate(){
+       /*this.setState({
+       date: new Date(), // 更新 date
+        test: 'componentDidUpdate'
+        })*/
+       }
+       componentWillUnmount(){
+        console.log('要死了')
+      }
+      
 }
   
 export default Welcome // 为什么要 export，为什么要加 default
