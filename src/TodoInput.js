@@ -6,7 +6,8 @@ export default class TodoInput extends Component {
     }
     submit(e){
         if(e.key === 'Enter'){
-            console.log('用户点击了回车')
+            //console.log('用户点击了回车')
+            this.props.onSubmit.call()
         }
     }
 }
